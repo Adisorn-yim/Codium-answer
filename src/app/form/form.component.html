@@ -17,7 +17,7 @@
               <button type="submit" [disabled]="dataform.invalid" class="btn btn-primary" (click)="update(dataform.value); bubble= true">Update</button>
               <br>
               <br>
-             <input formControlName="search" type="email" class="form-control" id="inputEmail3" placeholder="Search" ngModel="searchText">
+             <input #searchdata type="text" class="form-control" id="inputEmail3" placeholder="Search" (keyup.enter)="search(searchdata.value)">
                   <br><br>
 
             </div>

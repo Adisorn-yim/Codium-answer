@@ -17,15 +17,17 @@ export class FormComponent implements OnInit {
     i = 0;
     result: Array<object> = [{ name1: '', age1: '', index: '' }];
     status = false;
+
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
   }
   update(formvalue: any) {
 
     this.i = this.i + 1;
     console.log(this.i);
-
     formvalue.index = this.i;
     console.log(formvalue);
     this.data[this.i] = formvalue;
@@ -33,13 +35,24 @@ export class FormComponent implements OnInit {
 
     this.result = this.data.filter (
       (data) => {
-        return data.name1 !== '';
+
+
+        if (this.data[this.i] !== this.data[this.i - 1]) {
+          return data.name1 !== '';
+
+        }
+
       }
         );
 
     // console.log(this.data[this.i]);
     // this.data[this.i].age2 = formvalue.age1;
     console.log(this.result);
+
+    }
+
+    search(searchdata: string) {
+      console.log(searchdata);
 
     }
 

@@ -10,12 +10,13 @@ import { from } from 'rxjs';
 })
 export class FormComponent implements OnInit {
   dataform = this.fb.group({
-    name1: [''],
-    age1: Number
+  name1: [''],
+  age1: Number
     });
-    data = [{ name1: '', age1: '', index: '' }];
+    data: Array<object> = [{ name1: '', age1: '', index: ''}];
     i = 0;
-    result: Array<object> = [{ name1: '', age1: '', index: '' }];
+    n = 1;
+    result: Array<object>;
     status = false;
 
 
@@ -26,25 +27,13 @@ export class FormComponent implements OnInit {
   }
   update(formvalue: any) {
 
-    this.i = this.i + 1;
     console.log(this.i);
-    formvalue.index = this.i;
+    formvalue.index = this.i; // Setindex
     console.log(formvalue);
-    this.data[this.i] = formvalue;
+    this.data[this.i] = formvalue; // Input data
     this.status = true;
-
-    this.result = this.data.filter (
-      (data) => {
-
-
-        if (this.data[this.i] !== this.data[this.i - 1]) {
-          return data.name1 !== '';
-
-        }
-
-      }
-        );
-
+    this.result = this.data; // Set data
+    this.i++; // Update to next index
     // console.log(this.data[this.i]);
     // this.data[this.i].age2 = formvalue.age1;
     console.log(this.result);

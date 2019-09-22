@@ -32,8 +32,8 @@
       </tr>
     </thead>
     <tbody *ngIf="status">
-      <tr  *ngFor="let c of result" >
-        <th scope="row">{{c.index}}</th>
+      <tr  *ngFor="let c of data; let x=index" >
+        <th scope="row">{{x + 1}}</th>
         <td>{{c.name1}}</td>
         <td>{{c.age1}}</td>
         <td>None</td>
